@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FCF Club — Membership</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ef7a1f',
+            secondary: '#1e40af',
+            dark: '#1e293b'
+          },
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Minimal custom CSS for accordion functionality */
+    .accordion-content {
+      display: none;
+    }
+    .accordion-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="font-inter bg-gray-50">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+      <div class="brand flex items-center space-x-3 mb-4 md:mb-0">
+        <a href="index.html" class="flex items-center space-x-3">
+          <img src="assets/images/club_logo.jpg" alt="FCF Club logo" class="w-12 h-12 rounded-full">
+          <div>
+            <h1 class="text-xl font-bold text-gray-800">FCF Club</h1>
+            <p class="text-sm text-gray-600">Fire Cricket Fighters</p>
+          </div>
+        </a>
+      </div>
+
+      <nav class="w-full md:w-auto">
+        <button class="md:hidden w-full text-left flex justify-between items-center py-2 px-4 bg-gray-100 rounded-lg">
+          <span>Menu</span>
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul id="nav-menu" class="hidden md:flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 mt-2 md:mt-0 bg-white md:bg-transparent p-4 md:p-0 rounded-lg shadow-md md:shadow-none">
+          <li><a href="index.html" class="block py-2 px-4 hover:bg-gray-100 md:hover:bg-transparent rounded">Home</a></li>
+          <li><a href="about.html" class="block py-2 px-4 hover:bg-gray-100 md:hover:bg-transparent rounded">About</a></li>
+          <li><a href="gallery.html" class="block py-2 px-4 hover:bg-gray-100 md:hover:bg-transparent rounded">Gallery</a></li>
+          <li><a href="news.html" class="block py-2 px-4 hover:bg-gray-100 md:hover:bg-transparent rounded">News</a></li>
+          <li><a href="fan-zone.html" class="block py-2 px-4 hover:bg-gray-100 md:hover:bg-transparent rounded">Fan Zone</a></li>
+          <li><a href="players.html" class="block py-2 px-4 hover:bg-gray-100 md:hover:bg-transparent rounded">Our Players</a></li>
+          <li><a href="achievements.html" class="block py-2 px-4 hover:bg-gray-100 md:hover:bg-transparent rounded">Achievement</a></li>
+          <li><a href="membership.html" class="block py-2 px-4 bg-primary text-white rounded hover:bg-orange-600 transition">Membership</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Membership Hero -->
+ <section class="bg-gradient-to-r from-secondary to-blue-800 text-white py-16 md:py-24 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/images/about.jpg');">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-black">Join the FCF Club Family</h2>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto text-blue-100">Become part of our cricketing community and enjoy exclusive benefits, events, and experiences.</p>
+    </div>
+</section>
+
+  <!-- Membership Benefits -->
+  <section class="py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-2"><i class="fa-solid fa-star text-primary mr-2"></i> Membership Benefits</h2>
+      <p class="text-gray-600 text-center mb-8 md:mb-12 max-w-2xl mx-auto">As an FCF Club member, you'll enjoy these exclusive privileges and experiences</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-ticket text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Match Access</h3>
+          <p class="text-gray-600">Priority booking and discounted tickets for all home matches</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-store text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Club Store Discounts</h3>
+          <p class="text-gray-600">Enjoy 15% off all merchandise at our club store</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-users text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Exclusive Events</h3>
+          <p class="text-gray-600">Members-only events with players and coaching staff</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-newspaper text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Monthly Newsletter</h3>
+          <p class="text-gray-600">Behind-the-scenes content and early news updates</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-baseball text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Training Sessions</h3>
+          <p class="text-gray-600">Access to member-only training clinics and workshops</p>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-medal text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Voting Rights</h3>
+          <p class="text-gray-600">Have your say in club matters (Standard and Premium only)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Counter Section -->
+  <section class="py-12 md:py-16 bg-gradient-to-r from-dark to-gray-800 text-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-2"><i class="fa-solid fa-chart-line text-primary mr-2"></i> Our Club Achievements</h2>
+      <p class="text-gray-300 text-center mb-8 md:mb-12 max-w-2xl mx-auto">Numbers that showcase our journey and success in cricket</p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-baseball text-white text-2xl"></i>
+          </div>
+          <div class="counter text-3xl font-bold mb-1" data-target="5230">0</div>
+          <div class="text-gray-300">Matches Played</div>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-trophy text-white text-2xl"></i>
+          </div>
+          <div class="counter text-3xl font-bold mb-1" data-target="1640">0</div>
+          <div class="text-gray-300">Matches Won</div>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-flag text-white text-2xl"></i>
+          </div>
+          <div class="counter text-3xl font-bold mb-1" data-target="350">0</div>
+          <div class="text-gray-300">Tournaments</div>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-medal text-white text-2xl"></i>
+          </div>
+          <div class="counter text-3xl font-bold mb-1" data-target="70">0</div>
+          <div class="text-gray-300">Trophies Won</div>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-user-group text-white text-2xl"></i>
+          </div>
+          <div class="counter text-3xl font-bold mb-1" data-target="35">0</div>
+          <div class="text-gray-300">Active Players</div>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fa-solid fa-people-group text-white text-2xl"></i>
+          </div>
+          <div class="counter text-3xl font-bold mb-1" data-target="55">0</div>
+          <div class="text-gray-300">Club Members</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Form -->
+  <section id="register" class="py-12 md:py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-2"><i class="fa-solid fa-user-plus text-primary mr-2"></i> Join Now</h2>
+      <p class="text-gray-600 text-center mb-8 md:mb-12 max-w-2xl mx-auto">Complete the form below to become a member of FCF Club</p>
+      
+      <div class="max-w-3xl mx-auto bg-gray-50 rounded-lg shadow-md p-6 md:p-8">
+        <form id="membership-form">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label for="first-name" class="block text-gray-700 mb-2">First Name *</label>
+              <input type="text" id="first-name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            
+            <div>
+              <label for="last-name" class="block text-gray-700 mb-2">Last Name *</label>
+              <input type="text" id="last-name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label for="email" class="block text-gray-700 mb-2">Email Address *</label>
+              <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            
+            <div>
+              <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+              <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label for="dob" class="block text-gray-700 mb-2">Date of Birth *</label>
+              <input type="date" id="dob" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+            </div>
+            
+            <div>
+              <label for="plan" class="block text-gray-700 mb-2">Membership Plan *</label>
+              <select id="plan" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
+                <option value="">Select a plan</option>
+                <option value="junior">Junior Member ($50/year)</option>
+                <option value="standard">Standard Member ($120/year)</option>
+                <option value="premium">Premium Member ($250/year)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <label for="address" class="block text-gray-700 mb-2">Address</label>
+            <textarea id="address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" rows="3"></textarea>
+          </div>
+          
+          <div class="mb-6">
+            <label for="emergency-contact" class="block text-gray-700 mb-2">Emergency Contact</label>
+            <input type="text" id="emergency-contact" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Name and phone number">
+          </div>
+          
+          <div class="mb-6">
+            <div class="flex items-center">
+              <input type="checkbox" id="terms" class="w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded" required>
+              <label for="terms" class="ml-2 text-gray-700">I agree to the <a href="#" class="text-primary hover:underline">terms and conditions</a> *</label>
+            </div>
+          </div>
+          
+          <div class="mb-8">
+            <div class="flex items-center">
+              <input type="checkbox" id="newsletter" class="w-4 h-4 text-primary focus:ring-primary border-gray-300 rounded" checked>
+              <label for="newsletter" class="ml-2 text-gray-700">Subscribe to our newsletter</label>
+            </div>
+          </div>
+          
+          <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition">Complete Registration</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-12 md:py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-2"><i class="fa-solid fa-circle-question text-primary mr-2"></i> Frequently Asked Questions</h2>
+      <p class="text-gray-600 text-center mb-8 md:mb-12 max-w-2xl mx-auto">Find answers to common questions about FCF Club membership</p>
+      
+      <div class="max-w-3xl mx-auto">
+        <div class="accordion-item bg-white rounded-lg shadow-md mb-4">
+          <div class="accordion-header flex justify-between items-center p-4 cursor-pointer">
+            <span class="font-medium">❓ FCF ক্রিকেট ক্লাব কোথায় অবস্থিত?</span>
+            <i class="fa-solid fa-plus text-primary"></i>
+          </div>
+          <div class="accordion-content p-4 border-t">
+            <p>✅ আমাদের ক্লাবটি মীরপাড়া , নাটোরে  পুরাতন জিন্নাহ স্কুল এ অবস্থিত। সঠিক ঠিকানা ও ম্যাপ ক্লাব অফিসে বা আমাদের ওয়েবসাইটে পাওয়া যাবে।</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item bg-white rounded-lg shadow-md mb-4">
+          <div class="accordion-header flex justify-between items-center p-4 cursor-pointer">
+            <span class="font-medium">❓ নতুন খেলোয়াড়রা কি ক্লাবে যোগ দিতে পারবে?</span>
+            <i class="fa-solid fa-plus text-primary"></i>
+          </div>
+          <div class="accordion-content p-4 border-t">
+            <p>✅ হ্যাঁ, আমরা সবসময় নতুন খেলোয়াড়দের স্বাগত জানাই। ট্রায়ালের মাধ্যমে যোগদানের সুযোগ দেওয়া হয়।</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item bg-white rounded-lg shadow-md mb-4">
+          <div class="accordion-header flex justify-between items-center p-4 cursor-pointer">
+            <span class="font-medium">❓ FCF ক্রিকেট ক্লাবে কী ধরনের সুবিধা পাওয়া যাবে?</span>
+            <i class="fa-solid fa-plus text-primary"></i>
+          </div>
+          <div class="accordion-content p-4 border-t">
+            <p>✅  আমাদের ক্লাবে নিয়মিত প্রশিক্ষণ, কোচিং, নেট প্র্যাকটিস, ম্যাচ খেলার সুযোগ এবং ফিটনেস ট্রেনিং এর সুবিধা দেওয়া হয়।</p>
+          </div>
+        </div>
+        
+        <div class="accordion-item bg-white rounded-lg shadow-md mb-4">
+          <div class="accordion-header flex justify-between items-center p-4 cursor-pointer">
+            <span class="font-medium">❓ কি বয়স থেকে ক্লাবে যোগ দেওয়া যায়?</span>
+            <i class="fa-solid fa-plus text-primary"></i>
+          </div>
+          <div class="accordion-content p-4 border-t">
+            <p>✅  সাধারণত ১0 বছর বয়স থেকে খেলোয়াড়রা ক্লাবে যোগ দিতে পারে। তবে বয়স অনুযায়ী আলাদা ক্যাটাগরি রয়েছে। </p>
+          </div>
+        </div>
+        
+        <div class="accordion-item bg-white rounded-lg shadow-md mb-4">
+          <div class="accordion-header flex justify-between items-center p-4 cursor-pointer">
+            <span class="font-medium">❓  ক্লাবের যোগাযোগের উপায় কী?</span>
+            <i class="fa-solid fa-plus text-primary"></i>
+          </div>
+          <div class="accordion-content p-4 border-t">
+            <p>✅  আমাদের ক্লাবের যোগাযোগের উপায় সরাসরি আসতে পারেন, ফোন নম্বর এবং ইমেইল ঠিকানা ওয়েবসাইটে দেওয়া আছে। এছাড়া ফেসবুক পেজেও মেসেজ করা যাবে।.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-8 md:py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+          <p class="mb-2">📍 Mirpara, Natore (Old Boys School)</p>
+          <p class="mb-2">📞 +880 123 456 789</p>
+          <p>✉️ contact@fcfclub.com</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-primary transition">About</a></li>
+            <li><a href="gallery.html" class="hover:text-primary transition">Gallery</a></li>
+            <li><a href="news.html" class="hover:text-primary transition">News</a></li>
+            <li><a href="membership.html" class="hover:text-primary transition">Membership</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-orange-600 transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-orange-600 transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-orange-600 transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-6 text-center">
+        <p>&copy; 2025 FCF Club. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.md\\:hidden').addEventListener('click', function() {
+      const menu = document.getElementById('nav-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Accordion functionality
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('i');
+        
+        // Close all other accordion items
+        document.querySelectorAll('.accordion-content').forEach(item => {
+          if (item !== content && item.classList.contains('active')) {
+            item.classList.remove('active');
+            const otherIcon = item.previousElementSibling.querySelector('i');
+            otherIcon.classList.remove('fa-minus');
+            otherIcon.classList.add('fa-plus');
+          }
+        });
+        
+        // Toggle active class for clicked item
+        content.classList.toggle('active');
+        
+        // Change icon
+        if (content.classList.contains('active')) {
+          icon.classList.remove('fa-plus');
+          icon.classList.add('fa-minus');
+        } else {
+          icon.classList.remove('fa-minus');
+          icon.classList.add('fa-plus');
+        }
+      });
+    });
+
+    // Counter Animation
+    function animateCounter() {
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200; // Lower is faster
+      
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / speed);
+        
+        if (count < target) {
+          counter.innerText = Math.min(count + increment, target);
+          setTimeout(() => animateCounter(counter), 10);
+        }
+      });
+    }
+    
+    // Initialize counter when element is in viewport
+    function initCounter() {
+      const counterSection = document.querySelector('.bg-gradient-to-r.from-dark');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(counterSection);
+    }
+    
+    // Form submission handling
+    document.getElementById('membership-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Basic form validation
+      const requiredFields = this.querySelectorAll('[required]');
+      let valid = true;
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          field.classList.add('border-red-500');
+          valid = false;
+        } else {
+          field.classList.remove('border-red-500');
+        }
+      });
+      
+      if (!valid) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      // In a real application, you would send the data to a server here
+      alert('Thank you for your membership application! We will process it shortly.');
+      this.reset();
+    });
+
+    // Initialize when page loads
+    window.addEventListener('load', initCounter);
+  </script>
+</body>
+</html>

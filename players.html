@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FCF Club — Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'club-green': '#1a472a',
+            'club-light-green': '#2e8b57',
+            'club-gold': '#ffd700'
+          },
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif']
+          },
+          backgroundImage: {
+            'hero-pattern': "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgwLDAsMCwwLjAyKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0iIzFlNDEyOSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjxyZWN0IGZpbGw9InVybCgjcGF0dGVybikiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')"
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom animations for 3D carousel */
+    @keyframes rotate3d {
+      0% { transform: perspective(1000px) rotateY(0deg); }
+      100% { transform: perspective(1000px) rotateY(-360deg); }
+    }
+    
+    .carousel-3d {
+      transform-style: preserve-3d;
+      animation: rotate3d 20s linear infinite;
+    }
+    
+    .carousel-3d.paused {
+      animation-play-state: paused;
+    }
+    
+    .carousel-item {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: center;
+    }
+    
+    .carousel-item:nth-child(1) { transform: translate(-50%, -50%) rotateY(0deg) translateZ(200px); }
+    .carousel-item:nth-child(2) { transform: translate(-50%, -50%) rotateY(45deg) translateZ(200px); }
+    .carousel-item:nth-child(3) { transform: translate(-50%, -50%) rotateY(90deg) translateZ(200px); }
+    .carousel-item:nth-child(4) { transform: translate(-50%, -50%) rotateY(135deg) translateZ(200px); }
+    .carousel-item:nth-child(5) { transform: translate(-50%, -50%) rotateY(180deg) translateZ(200px); }
+    .carousel-item:nth-child(6) { transform: translate(-50%, -50%) rotateY(225deg) translateZ(200px); }
+    .carousel-item:nth-child(7) { transform: translate(-50%, -50%) rotateY(270deg) translateZ(200px); }
+    .carousel-item:nth-child(8) { transform: translate(-50%, -50%) rotateY(315deg) translateZ(200px); }
+    
+    /* Player slider animation */
+    @keyframes slideLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+    
+    .slider-track {
+      animation: slideLeft 30s linear infinite;
+    }
+    
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Mobile menu styles */
+    .mobile-menu {
+      transition: all 0.3s ease-in-out;
+      max-height: 0;
+      overflow: hidden;
+    }
+    
+    .mobile-menu.open {
+      max-height: 500px;
+    }
+    
+    /* Hero background image */
+    .hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    /* Player card hover effect */
+    .player-card {
+      transition: all 0.3s ease;
+    }
+    
+    .player-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="font-inter bg-gray-50">
+
+  <!-- Header -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center justify-between py-4 gap-4 lg:gap-0">
+        <!-- Brand -->
+        <div class="flex flex-col lg:flex-row items-center gap-3 lg:gap-4">
+          <a href="index.html" class="block">
+            <div class=" rounded-full bg-club-green flex items-center justify-center text-white text-2xl font-bold">
+              <img src="assets/images/club_logo.jpg" alt="FCF Club logo" class="h-16 w-16 rounded-full object-cover">
+            </div>
+          </a>
+          <div class="text-center lg:text-left">
+            
+            <h1 class="text-2xl lg:text-3xl font-bold text-club-green">FCF Club</h1>
+            <p class="text-sm lg:text-base text-gray-600">FCF Cricket Club</p>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-club-green hover:bg-gray-100 rounded-lg transition-colors">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        
+        <!-- Navigation -->
+        <nav id="main-nav" class="hidden lg:flex w-full lg:w-auto">
+          <ul class="flex flex-col lg:flex-row items-center gap-2 lg:gap-6 w-full lg:w-auto bg-white lg:bg-transparent p-4 lg:p-0 rounded-lg lg:rounded-none shadow-lg lg:shadow-none">
+            <li><a href="index.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 lg:hover:bg-transparent rounded-lg transition-all">Home</a></li>
+            <li><a href="about.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 lg:hover:bg-transparent rounded-lg transition-all">About</a></li>
+            <li><a href="gallery.html" class="block px-4 py-2 text-club-green font-semibold bg-green-50 lg:bg-transparent rounded-lg">Gallery</a></li>
+            <li><a href="news.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 lg:hover:bg-transparent rounded-lg transition-all">News</a></li>
+            <li><a href="fan-zone.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 lg:hover:bg-transparent rounded-lg transition-all">Fan Zone</a></li>
+            <li><a href="players.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 lg:hover:bg-transparent rounded-lg transition-all">Our Players</a></li>
+            <li><a href="achievements.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 lg:hover:bg-transparent rounded-lg transition-all">Achievement</a></li>
+            <li><a href="membership.html" class="block px-4 py-2 bg-club-green text-white hover:bg-green-700 rounded-lg transition-all font-semibold">Membership</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu lg:hidden">
+        <ul class="flex flex-col gap-2 py-4">
+          <li><a href="index.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 rounded-lg transition-all">Home</a></li>
+          <li><a href="about.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 rounded-lg transition-all">About</a></li>
+          <li><a href="gallery.html" class="block px-4 py-2 text-club-green font-semibold bg-green-50 rounded-lg">Gallery</a></li>
+          <li><a href="news.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 rounded-lg transition-all">News</a></li>
+          <li><a href="fan-zone.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 rounded-lg transition-all">Fan Zone</a></li>
+          <li><a href="players.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 rounded-lg transition-all">Our Players</a></li>
+          <li><a href="achievements.html" class="block px-4 py-2 text-gray-700 hover:text-club-green hover:bg-gray-100 rounded-lg transition-all">Achievement</a></li>
+          <li><a href="membership.html" class="block px-4 py-2 bg-club-green text-white hover:bg-green-700 rounded-lg transition-all font-semibold">Membership</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Background Image -->
+  <section class="relative hero-bg h-64 md:h-80 lg:h-96 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative text-center text-white z-10 px-4">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Gallery</h2>
+      <p class="text-lg md:text-xl lg:text-2xl opacity-90">Explore FCF Club's players, team, and practice moments.</p>
+      <div class="mt-6">
+        <a href="#players" class="inline-block px-6 py-3 bg-club-gold text-club-green font-semibold rounded-lg hover:bg-yellow-500 transition-colors">
+          View Players
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Player Slider -->
+ <section class="py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
+    <div class="container mx-auto px-4 lg:px-8">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-club-green mb-8 md:mb-12">Players</h2>
+      <div class="relative overflow-hidden">
+        <div class="slider-track flex gap-4 md:gap-6" style="width: calc(200% + 2rem);">
+          <!-- Player cards for slider -->
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player2.jpg" alt="Player 1" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player1.jpg" alt="Player 2" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player3.jpg" alt="Player 3" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player4.jpg" alt="Player 4" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player5.jpg" alt="Player 5" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player6.jpg" alt="Player 6" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player7.jpg" alt="Player 7" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player8.jpg" alt="Player 8" class="w-full h-full object-cover">
+          </div>
+          <!-- Repeat for seamless loop -->
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player2.jpg" alt="Player 1" class="w-full h-full object-cover">
+          </div>
+          <div class="flex-shrink-0 w-24 h-32 md:w-32 md:h-40 lg:w-40 lg:h-48 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <img src="assets/Player/player1.jpg" alt="Player 2" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Player Search and Gallery -->
+ <section class="py-8 md:py-12 lg:py-16 bg-gray-50">
+    <div class="container mx-auto px-4 lg:px-8">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-club-green mb-8 md:mb-12">Our Players</h2>
+      
+      <!-- Player Search -->
+      <div class="relative max-w-md mx-auto mb-8 md:mb-12">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="playerSearch" 
+            placeholder="Search players by name..." 
+            class="w-full px-4 py-3 pr-12 text-base border-2 border-gray-300 rounded-lg focus:border-club-green focus:outline-none focus:ring-2 focus:ring-club-green focus:ring-opacity-20 transition-all"
+          >
+          <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+        <div id="searchResults" class="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-2 z-40 hidden max-h-80 overflow-y-auto"></div>
+      </div>
+
+      <!-- Players Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+        
+        <!-- Player Card 1 - Alif -->
+        <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player1.jpg" alt="Alif" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Alif</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>70</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>33</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>92</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>150.0</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Player Card 2 - Shakkor -->
+        <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player2.jpg" alt="Shakkor" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Shakkor</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Player Card 3 - Toukir -->
+        <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player3.jpg" alt="Toukir" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Toukir</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>70</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>33</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>92</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>150.0</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Player Card 4 - Utsho -->
+        <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player4.jpg" alt="Utsho" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Utsho</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>400</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Player Card 5 - Alamin -->
+        <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player5.jpg" alt="Alamin" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Alamin</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>70</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>33</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>92</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>150.0</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Player Card 6 - Arik -->
+        <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player6.jpg" alt="Arik" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Arik</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Player Card 7 - Rezve -->
+        <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player7.jpg" alt="Rezve" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Rezve</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>70</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>33</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>92</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>150.0</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Player Card 8 - Tanzim -->
+        <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player8.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Tanzim</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player9.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Zihad</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player10.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Akash</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player12.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Shepon</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player13.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Alamin</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player15.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Abid</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player16.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Alvi</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player17.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Sinha</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player18.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Rafi</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player19.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Nakib</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player21.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Sunny</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player22.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Nadim</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player23.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Safin</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player24.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Siam</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player25.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Lemon</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player26.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Shimul</h3>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player27.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Mahin</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player28.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Ohi</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player29.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Meahdi</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player30.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">Sopno</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+
+         <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/Player/player31.jpg" alt="Tanzim" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6">
+            <h3 class="text-xl font-bold text-club-green mb-2">XXXX</h3>
+            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+            </ul>
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 3D Carousel Section -->
+  <section class="py-12 md:py-16 lg:py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-club-green mb-12">3D Player Showcase</h2>
+      
+      <div class="flex flex-col items-center gap-8">
+        <!-- 3D Carousel Container -->
+        <div class="relative w-80 h-80 md:w-96 md:h-96 perspective-1000">
+          <div id="carousel3d" class="carousel-3d relative w-full h-full transform-gpu">
+            <div class="carousel-item">
+              <img src="assets/Player/player1.jpg" alt="Player 1" class="w-32 h-40 md:w-40 md:h-48 object-cover rounded-lg shadow-lg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/Player/player2.jpg" alt="Player 2" class="w-32 h-40 md:w-40 md:h-48 object-cover rounded-lg shadow-lg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/Player/player3.jpg" alt="Player 3" class="w-32 h-40 md:w-40 md:h-48 object-cover rounded-lg shadow-lg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/Player/player4.jpg" alt="Player 4" class="w-32 h-40 md:w-40 md:h-48 object-cover rounded-lg shadow-lg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/Player/player5.jpg" alt="Player 5" class="w-32 h-40 md:w-40 md:h-48 object-cover rounded-lg shadow-lg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/Player/player6.jpg" alt="Player 6" class="w-32 h-40 md:w-40 md:h-48 object-cover rounded-lg shadow-lg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/Player/player7.jpg" alt="Player 7" class="w-32 h-40 md:w-40 md:h-48 object-cover rounded-lg shadow-lg">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/Player/player8.jpg" alt="Player 8" class="w-32 h-40 md:w-40 md:h-48 object-cover rounded-lg shadow-lg">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Carousel Controls -->
+        <div class="flex gap-4">
+          <button id="prevBtn" class="px-6 py-3 bg-club-green text-white rounded-lg hover:bg-green-700 transition-colors font-semibold">
+            <i class="fas fa-chevron-left mr-2"></i>Prev
+          </button>
+          <button id="nextBtn" class="px-6 py-3 bg-club-green text-white rounded-lg hover:bg-green-700 transition-colors font-semibold">
+            Next<i class="fas fa-chevron-right ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-8 md:py-12">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">FCF Club</h3>
+          <p class="text-gray-300">FCF Cricket Club is dedicated to promoting cricket excellence and sportsmanship in our community.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors">About</a></li>
+            <li><a href="gallery.html" class="text-gray-300 hover:text-white transition-colors">Gallery</a></li>
+            <li><a href="news.html" class="text-gray-300 hover:text-white transition-colors">News</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li><i class="fas fa-map-marker-alt mr-2"></i> Cricket Ground, City</li>
+            <li><i class="fas fa-phone mr-2"></i> +123 456 7890</li>
+            <li><i class="fas fa-envelope mr-2"></i> info@fcfclub.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2023 FCF Club. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mainNav = document.getElementById('main-nav');
+      
+      // Toggle mobile menu
+      mobileMenuBtn.addEventListener('click', function() {
+        // Toggle mobile menu visibility
+        mobileMenu.classList.toggle('open');
+        
+        // Change icon based on menu state
+        const icon = mobileMenuBtn.querySelector('i');
+        if (mobileMenu.classList.contains('open')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close mobile menu when clicking on a link
+      const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        });
+      });
+      
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(event) {
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnButton = mobileMenuBtn.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnButton && mobileMenu.classList.contains('open')) {
+          
+          mobileMenu.classList.remove('open');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

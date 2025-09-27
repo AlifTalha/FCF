@@ -1,0 +1,357 @@
+/* Additional styles for membership page */
+.btn-cta {
+  background-color: #ef7a1f;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #d46915;
+}
+
+/* Form styles */
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-check-input {
+  margin-right: 10px;
+}
+
+.form-check-label {
+  margin-bottom: 0;
+}
+
+
+
+ /* Additional CSS for membership page */
+    .membership-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/membership-bg.jpg') center/cover no-repeat;
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+ .membership-plans {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 300% 300%;
+    animation: gradientBG 15s ease infinite;
+    color: black;
+    text-align: center;
+    margin-bottom: 20px;
+
+    
+    }
+      @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+    .plans-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .plan-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      flex: 1;
+      min-width: 280px;
+      max-width: 350px;
+      transition: transform 0.3s ease;
+    }
+    
+    .plan-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .plan-card.featured {
+      border: 2px solid #ef7a1f;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .plan-card.featured::before {
+      content: "MOST POPULAR";
+      position: absolute;
+      top: 15px;
+      right: -35px;
+      background: #ef7a1f;
+      color: white;
+      padding: 5px 40px;
+      font-size: 12px;
+      transform: rotate(45deg);
+    }
+    
+    .plan-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ef7a1f;
+      margin: 15px 0;
+    }
+    
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+    
+    .plan-features li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .plan-features li:last-child {
+      border-bottom: none;
+    }
+    
+    .plan-features li i {
+      color: #4CAF50;
+      margin-right: 10px;
+    }
+    
+    .benefits-section {
+      padding: 60px 0;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .benefit-card {
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: #ef7a1f;
+      margin-bottom: 20px;
+    }
+    
+    .registration-section {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .form-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .form-row .form-group {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .faq-section {
+      padding: 60px 0;
+      background-color: #eeecec;
+      border: 2px solid #8e8686;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      margin-bottom: 40px;
+     
+    }
+    
+
+    
+
+    
+    .accordion {
+      margin-top: 40px;
+    }
+    
+    .accordion-item {
+      border: 1px solid #321c1c;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    
+    .accordion-header {
+      padding: 20px;
+      background: #f9f9f9;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+    }
+    
+    .accordion-content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .accordion-content.active {
+      padding: 20px;
+      max-height: 300px;
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .form-container {
+        padding: 20px;
+      }
+    }
+
+
+
+
+      /* Stats Counter Styles */
+  .stats-counter {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 300% 300%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    text-align: center;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .stats-counter h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .stats-counter > .container > p {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    opacity: 0.9;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  .stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #ef7a1f;
+  }
+  
+  .counter {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .stat-label {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .counter {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  .membership-hero {
+  background: url('../images/background.jpg') no-repeat center center/cover;
+  position: relative;
+  height: 32vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  background: rgba(72, 71, 71, 0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

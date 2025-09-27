@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FCF Club — Gallery</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    /* Player slider animation */
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-250px * 14)); }
+    }
+    
+    .slider-track {
+      animation: scroll 40s linear infinite;
+      width: calc(250px * 28);
+    }
+    
+    .player-slider:hover .slider-track {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <a href="index.html">
+          <img src="assets/images/club_logo.jpg" alt="FCF Club logo" class="h-16 w-16 object-cover rounded-full">
+        </a>
+        <div>
+          <h1 class="text-xl font-bold text-gray-900">FCF Club</h1>
+          <p class="text-sm text-gray-600">FCF Cricket Club</p>
+        </div>
+      </div>
+      
+      <nav class="relative">
+        <button class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle navigation">
+          <i class="fa fa-bars text-xl"></i>
+        </button>
+        <ul class="hidden md:flex space-x-6 items-center">
+          <li><a href="index.html" class="hover:text-blue-600 transition">Home</a></li>
+          <li><a href="about.html" class="hover:text-blue-600 transition">About</a></li>
+          <li><a href="gallery.html" class="text-blue-600 font-semibold">Gallery</a></li>
+          <li><a href="news.html" class="hover:text-blue-600 transition">News</a></li>
+          <li><a href="fan-zone.html" class="hover:text-blue-600 transition">Fan Zone</a></li>
+          <li><a href="players.html" class="hover:text-blue-600 transition">Our Players</a></li>
+          <li><a href="achievements.html" class="hover:text-blue-600 transition">Achievement</a></li>
+          <li><a href="membership.html" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Membership</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative bg-cover bg-center h-96" style="background-image: url('assets/images/galley_image.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative container mx-auto px-4 h-full flex items-center justify-center text-center">
+      <div class="text-white">
+        <h2 class="text-4xl font-bold mb-4">Gallery</h2>
+        <p class="text-xl">Explore FCF Club's players, team, and practice moments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Players Slider -->
+  <section class="py-16 container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Our Players</h2>
+    
+    <div class="player-slider overflow-hidden relative">
+      <div class="slider-track flex space-x-4">
+        <!-- Player images -->
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player2.jpg" alt="Player 1" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player1.jpg" alt="Player 2" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player3.jpg" alt="Player 3" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player4.jpg" alt="Player 4" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player5.jpg" alt="Player 5" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player6.jpg" alt="Player 6" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player7.jpg" alt="Player 7" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player8.jpg" alt="Player 8" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player9.jpg" alt="Player 9" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player10.jpg" alt="Player 10" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player11.jpg" alt="Player 11" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player12.jpg" alt="Player 12" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player13.jpg" alt="Player 13" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player15.jpg" alt="Player 15" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player16.jpg" alt="Player 16" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player17.jpg" alt="Player 17" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player18.jpg" alt="Player 18" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player19.jpg" alt="Player 19" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player21.jpg" alt="Player 21" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player22.jpg" alt="Player 22" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player23.jpg" alt="Player 23" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player24.jpg" alt="Player 24" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player25.jpg" alt="Player 25" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player26.jpg" alt="Player 26" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player27.jpg" alt="Player 27" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player28.jpg" alt="Player 28" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player29.jpg" alt="Player 29" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player30.jpg" alt="Player 30" class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Duplicates for smooth infinite scroll -->
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player1.jpg" alt="Player 1" class="w-full h-full object-cover">
+        </div>
+        <div class="player-card w-60 h-80 flex-shrink-0 overflow-hidden rounded-lg shadow-md">
+          <img src="assets/Player/player2.jpg" alt="Player 2" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Group Images -->
+  <section class="py-16 bg-gray-100 rounded-lg mx-4 md:mx-auto md:container">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Team Group</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team1.jpg" alt="Team 1" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">City League Champions 2024</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team2.jpg" alt="Team 2" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">Regional Cup Winners 2023</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-8">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md max-w-2xl mx-auto">
+          <img src="assets/club/team.jpg" alt="Team" class="w-full h-80 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">City League Champions 2024</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team4.jpg" alt="Team 4" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">City League Champions 2024</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team5.jpg" alt="Team 5" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">Regional Cup Winners 2023</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team6.jpg" alt="Team 6" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">Regional Cup Winners 2023</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-8">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md max-w-2xl mx-auto">
+          <img src="assets/club/team14.jpg" alt="Team 14" class="w-full h-80 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">City League Champions 2024</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team8.jpg" alt="Team 8" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">City League Champions 2024</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team9.jpg" alt="Team 9" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">Regional Cup Winners 2023</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team10.jpg" alt="Team 10" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">Regional Cup Winners 2023</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team11.jpg" alt="Team 11" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">City League Champions 2024</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team13.jpg" alt="Team 13" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">Regional Cup Winners 2023</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-md">
+          <img src="assets/club/team12.jpg" alt="Team 12" class="w-full h-64 object-cover">
+          <div class="p-4">
+            <p class="text-center font-medium">Regional Cup Winners 2023</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Images -->
+  <section class="py-16 container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Practice Sessions</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div class="bg-white rounded-lg overflow-hidden shadow-md">
+        <img src="assets/club/news1.jpg" alt="Practice 1" class="w-full h-64 object-cover">
+        <div class="p-4">
+          <p class="text-center font-medium">Morning Training Session</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg overflow-hidden shadow-md">
+        <img src="assets/club/news2.jpg" alt="Practice 2" class="w-full h-64 object-cover">
+        <div class="p-4">
+          <p class="text-center font-medium">Team Fitness Drills</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg overflow-hidden shadow-md">
+        <img src="assets/club/news3.jpg" alt="Practice 3" class="w-full h-64 object-cover">
+        <div class="p-4">
+          <p class="text-center font-medium">Fielding Practice</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      <div class="bg-gray-900 rounded-lg overflow-hidden shadow-md">
+        <img src="assets/club/news7.jpg" alt="Practice 7" class="w-full h-72 object-cover">
+        <div class="p-4">
+          <p class="text-center font-medium text-white">Match Session</p>
+        </div>
+      </div>
+      <div class="bg-gray-900 rounded-lg overflow-hidden shadow-md">
+        <img src="assets/club/news8.jpg" alt="Practice 8" class="w-full h-72 object-cover">
+        <div class="p-4">
+          <p class="text-center font-medium text-white">Team Fitness Drills</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-lg overflow-hidden shadow-md">
+        <img src="assets/club/news4.jpg" alt="Practice 4" class="w-full h-60 object-cover">
+        <div class="p-4">
+          <p class="text-center font-medium">Morning Training Session</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg overflow-hidden shadow-md">
+        <img src="assets/club/news5.jpg" alt="Practice 5" class="w-full h-60 object-cover">
+        <div class="p-4">
+          <p class="text-center font-medium">Team Fitness Drills</p>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg overflow-hidden shadow-md">
+        <img src="assets/club/news6.jpg" alt="Practice 6" class="w-full h-60 object-cover">
+        <div class="p-4">
+          <p class="text-center font-medium">Batting Practice</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+          <p class="mb-2">📍 Mirpara, Natore (Old Boys School)</p>
+          <p class="mb-2">📞 +880 123 456 789</p>
+          <p class="mb-2">✉️ contact@fcfclub.com</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-blue-300 transition">About</a></li>
+            <li><a href="gallery.html" class="hover:text-blue-300 transition">Gallery</a></li>
+            <li><a href="news.html" class="hover:text-blue-300 transition">News</a></li>
+            <li><a href="membership.html" class="hover:text-blue-300 transition">Membership</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-2xl hover:text-blue-300 transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-2xl hover:text-blue-300 transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-2xl hover:text-blue-300 transition"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-8 text-center">
+        <p>&copy; 2025 FCF Club. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+    <script>
+    // Simple mobile menu toggle functionality
+    document.querySelector('button').addEventListener('click', function() {
+      const navMenu = document.querySelector('nav ul');
+      navMenu.classList.toggle('hidden');
+      navMenu.classList.toggle('flex');
+      navMenu.classList.toggle('flex-col');
+      navMenu.classList.toggle('absolute');
+      navMenu.classList.toggle('bg-white');
+      navMenu.classList.toggle('shadow-lg');
+      navMenu.classList.toggle('p-4');
+      navMenu.classList.toggle('right-0');
+      navMenu.classList.toggle('top-full');
+      navMenu.classList.toggle('z-50');
+    });
+  </script>
+
+</body>
+</html>

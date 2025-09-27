@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FCF Club - Fan Zone</title>
+  <link rel="stylesheet" href="assets/css/news.css">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/fan.css">
+  
+  <style>
+    /* Additional Styles for New Features */
+    
+    /* Interactive Poll */
+    .poll-container {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 40px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      color: white;
+    }
+    
+    .poll-question {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .poll-options {
+      margin-bottom: 20px;
+    }
+    
+    .poll-option {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .poll-option:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+    
+    .poll-option.selected {
+      background: rgba(255,215,0,0.3);
+      border: 2px solid #ffd700;
+    }
+    
+    .poll-percentage {
+      font-weight: bold;
+      color: #ffd700;
+    }
+    
+    .poll-results {
+      display: none;
+    }
+    
+    .poll-bar {
+      height: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 5px;
+      margin-top: 5px;
+      overflow: hidden;
+    }
+    
+    .poll-fill {
+      height: 100%;
+      background: #ffd700;
+      border-radius: 5px;
+      width: 0%;
+      transition: width 1s ease-in-out;
+    }
+    
+    /* Match Predictor */
+    .predictor-container {
+      background: linear-gradient(135deg, #0c2461, #1e3799);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 40px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      color: white;
+    }
+    
+    .team-selector {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+    
+    .team-option {
+      text-align: center;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      width: 45%;
+    }
+    
+    .team-option:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .team-option.selected {
+      background: rgba(255,215,0,0.3);
+      border: 2px solid #ffd700;
+    }
+    
+    .team-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #0c2461;
+    }
+    
+    .prediction-result {
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+    
+    /* Fan Wall */
+    .fan-wall-container {
+      background: linear-gradient(135deg, #2c3e50, #4ca1af);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 40px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      color: white;
+    }
+    
+    .fan-message-form {
+      margin-bottom: 20px;
+    }
+    
+    .fan-message-input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 10px;
+      background: rgba(255,255,255,0.9);
+    }
+    
+    .fan-messages {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    
+    .fan-message {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .fan-message-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: #ffd700;
+    }
+    
+    /* Interactive Quiz */
+    .quiz-container {
+      background: linear-gradient(135deg, #8e2de2, #4a00e0);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 40px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      color: white;
+    }
+    
+    .quiz-question {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    
+    .quiz-options {
+      margin-bottom: 20px;
+    }
+    
+    .quiz-option {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .quiz-option:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .quiz-option.correct {
+      background: rgba(0,255,0,0.3);
+    }
+    
+    .quiz-option.incorrect {
+      background: rgba(255,0,0,0.3);
+    }
+    
+    .quiz-result {
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+    
+    /* Fan Leaderboard */
+    .leaderboard-container {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 40px 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      color: white;
+    }
+    
+    .leaderboard-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .leaderboard-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .leaderboard-rank {
+      font-weight: bold;
+      color: #ffd700;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .team-selector {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .team-option {
+        width: 90%;
+        margin-bottom: 15px;
+      }
+    }
+
+
+    /* Responsive Styles for Mobile Devices */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .site-header .header-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .brand {
+    margin-bottom: 15px;
+  }
+  
+  .main-nav .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .main-nav .nav-menu li {
+    margin: 5px 0;
+  }
+  
+  /* Hero section */
+  .news-hero .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .news-hero .hero-content p {
+    font-size: 1rem;
+  }
+  
+  /* Testimonial slider */
+  .testimonial-slider {
+    padding: 0 15px;
+  }
+  
+  .slider-track {
+    gap: 15px;
+  }
+  
+  .testimonial-card {
+    min-width: 280px;
+    padding: 20px;
+  }
+  
+  /* Poll container */
+  .poll-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  
+  .poll-question {
+    font-size: 1.2rem;
+  }
+  
+  /* Match predictor */
+  .predictor-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  
+  .team-selector {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .team-option {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 15px;
+  }
+  
+  /* Fan wall */
+  .fan-wall-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  
+  .fan-messages {
+    max-height: 300px;
+  }
+  
+  /* Quiz container */
+  .quiz-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  
+  .quiz-question {
+    font-size: 1.1rem;
+  }
+  
+  /* Leaderboard */
+  .leaderboard-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  
+  /* Footer adjustments */
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-col {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  .site-header .club-name {
+    font-size: 1.5rem;
+  }
+  
+  .site-header .club-sub {
+    font-size: 0.9rem;
+  }
+  
+  .news-hero .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  .testimonial-card {
+    min-width: 250px;
+    padding: 15px;
+  }
+  
+  .testimonial-text {
+    font-size: 0.9rem;
+  }
+  
+  .poll-option, .quiz-option {
+    padding: 12px;
+  }
+  
+  .team-logo {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  /* Adjust testimonial slider for very small screens */
+  .testimonial-slider {
+    overflow: hidden;
+  }
+  
+  .slider-track {
+    width: max-content;
+  }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .poll-option, .quiz-option, .team-option {
+    min-height: 44px; /* Minimum touch target size */
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html"><img src="assets/images/club_logo.jpg" alt="FCF Club logo" class="logo"></a>
+        <div class="brand-text">
+          <h1 class="club-name">FCF Club</h1>
+          <p class="club-sub">Fire Cricket Fighters</p>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="fan-zone.html" class="active">Fan Zone</a></li>
+          <li><a href="players.html">Our Players</a></li>
+          <li><a href="achievements.html">Achievement</a></li>
+          <li><a href="membership.html" class="btn btn-cta">Membership</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="news-hero text-center text-white d-flex align-items-center justify-content-center">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1 class="display-4 fw-bold">Fan Zone</h1>
+      <p>Join the conversation, make predictions, and connect with fellow FCF Club fans!</p>
+    </div>
+  </section>
+
+  <!-- Testimonial Slider -->
+  <section class="testimonial-slider">
+    <div class="slider-track" id="sliderTrack">
+      <!-- 10 Cards -->
+      <div class="testimonial-card">
+        <i class="fa fa-quote-left"></i>
+        <p class="testimonial-text">"ক্রিকেট শুধু খেলা নয়, এটি ধৈর্য, আবেগ আর অধ্যবসায়ের যুদ্ধ।"</p>
+        <div class="profile">
+          <img src="assets/Player/player2.jpg" alt="User">
+          <div>
+            <h6>Shakkor</h6>
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa fa-quote-left"></i>
+        <p class="testimonial-text">"প্রতিটি বল একটি নতুন সুযোগ — সাহস আর আত্মবিশ্বাস দিয়ে মোকাবিলা করো।"</p>
+        <div class="profile">
+          <img src="assets/Player/player1.jpg" alt="User">
+          <div>
+            <h6>Alif</h6>
+          </div>
+        </div>
+      </div>
+      <!-- Add 8 more cards same style -->
+      <div class="testimonial-card"><i class="fa fa-quote-left"></i><p class="testimonial-text">"একজন প্রকৃত ক্রিকেটার জয় থেকে নয়, ব্যর্থতা থেকে সবচেয়ে বেশি শেখে।"</p><div class="profile"><img src="assets/Player/player3.jpg"><div><h6>Toukir</h6><p> </p></div></div></div>
+      <div class="testimonial-card"><i class="fa fa-quote-left"></i><p class="testimonial-text">"যারা আউট হওয়ার পরও হাল ছাড়ে না, তারাই সাফল্য পায়।"..</p><div class="profile"><img src="assets/Player/player4.jpg"><div><h6>Utsho</h6><p> </p></div></div></div>
+      <div class="testimonial-card"><i class="fa fa-quote-left"></i><p class="testimonial-text">"শৃঙ্খলায় ব্যাট করো, দৃঢ়তায় বল করো, আর মন দিয়ে ফিল্ডিং করো।"..</p><div class="profile"><img src="assets/Player/player5.jpg"><div><h6>Alamin</h6><p> </p></div></div></div>
+      <div class="testimonial-card"><i class="fa fa-quote-left"></i><p class="testimonial-text">"স্কোরবোর্ড প্রচেষ্টা দেখায়, কিন্তু মনের স্পিরিট চরিত্র প্রকাশ করে।".</p><div class="profile"><img src="assets/Player/player6.jpg"><div><h6>Arik</h6><p></p></div></div></div>
+      <div class="testimonial-card"><i class="fa fa-quote-left"></i><p class="testimonial-text">"ক্রিকেট আমাদের সময়কে সম্মান করতে শেখায়, কারণ প্রতিটি ওভারেই খেলা বদলায়।".</p><div class="profile"><img src="assets/Player/player7.jpg"><div><h6>Rezve</h6><p></div></div></div>
+      <div class="testimonial-card"><i class="fa fa-quote-left"></i><p class="testimonial-text">"মহান খেলোয়াড় জন্মায় না, তারা মাঠে ঘাম আর পরিশ্রমে গড়ে ওঠে।".</p><div class="profile"><img src="assets/Player/player8.jpg"><div><h6>Tanzim</h6><p></p></div></div></div>
+      <div class="testimonial-card"><i class="fa fa-quote-left"></i><p class="testimonial-text">"ট্রফির জন্য নয়, টিমের জন্য খেলো — জয় নিজে থেকেই আসবে।".</p><div class="profile"><img src="assets/Player/player16.jpg"><div><h6>Alvi</h6><p> </p></div></div></div>
+      <div class="testimonial-card"><i class="fa fa-quote-left"></i><p class="testimonial-text">"তোমার শটে বিশ্বাস রাখো, তোমার ডেলিভারিতে আস্থা রাখো, খেলা তোমাকে পুরস্কৃত করবে।".</p><div class="profile"><img src="assets/Player/player13.jpg"><div><h6>Alamin</h6><p> </p></div></div></div>
+    </div>
+  </section>
+
+  <!-- Interactive Poll -->
+  <section class="container">
+    <div class="poll-container">
+      <h2 class="text-center mb-4">Fan Poll</h2>
+      <div class="poll-question">Who will be the top scorer in our next match?</div>
+      <div class="poll-options">
+        <div class="poll-option" data-option="1">
+          <span>Alif</span>
+          <span class="poll-percentage">0%</span>
+        </div>
+        <div class="poll-option" data-option="2">
+          <span>Shakkor</span>
+          <span class="poll-percentage">0%</span>
+        </div>
+        <div class="poll-option" data-option="3">
+          <span>Toukir</span>
+          <span class="poll-percentage">0%</span>
+        </div>
+        <div class="poll-option" data-option="4">
+          <span>Arik</span>
+          <span class="poll-percentage">0%</span>
+        </div>
+      </div>
+      <div class="poll-results">
+        <div class="poll-option-result">
+          <div>Alif</div>
+          <div class="poll-bar"><div class="poll-fill" data-percentage="35"></div></div>
+          <div class="poll-percentage">35%</div>
+        </div>
+        <div class="poll-option-result">
+          <div>Shakkor</div>
+          <div class="poll-bar"><div class="poll-fill" data-percentage="25"></div></div>
+          <div class="poll-percentage">25%</div>
+        </div>
+        <div class="poll-option-result">
+          <div>Toukir</div>
+          <div class="poll-bar"><div class="poll-fill" data-percentage="20"></div></div>
+          <div class="poll-percentage">20%</div>
+        </div>
+        <div class="poll-option-result">
+          <div>Alamin</div>
+          <div class="poll-bar"><div class="poll-fill" data-percentage="20"></div></div>
+          <div class="poll-percentage">20%</div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-warning" id="voteBtn">Vote Now</button>
+        <button class="btn btn-outline-light" id="viewResultsBtn">View Results</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Match Predictor -->
+  <section class="container">
+    <div class="predictor-container">
+      <h2 class="text-center mb-4">Match Predictor</h2>
+      <p class="text-center">Predict the winner of our next match against Rajshahi Royals</p>
+      
+      <div class="team-selector">
+        <div class="team-option" data-team="fcf">
+          <div class="team-logo">FCF</div>
+          <h4>FCF Club</h4>
+        </div>
+        <div class="team-option" data-team="draw">
+          <div class="team-logo">VS</div>
+          <h4>Draw/Tie</h4>
+        </div>
+        <div class="team-option" data-team="royals">
+          <div class="team-logo">RR</div>
+          <h4>Rajshahi Royals</h4>
+        </div>
+      </div>
+      
+      <div class="prediction-result" id="predictionResult">
+        <h3>Your Prediction: <span id="predictedTeam"></span></h3>
+        <p>Thanks for your prediction! We'll see how it turns out after the match.</p>
+      </div>
+      
+      <div class="text-center">
+        <button class="btn btn-warning" id="predictBtn">Submit Prediction</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fan Wall -->
+  <section class="container">
+    <div class="fan-wall-container">
+      <h2 class="text-center mb-4">Fan Wall</h2>
+      <p class="text-center">Share your thoughts and support for the team!</p>
+      
+      <div class="fan-message-form">
+        <input type="text" class="fan-message-input" placeholder="Your name" id="fanName">
+        <textarea class="fan-message-input" placeholder="Your message for the team..." rows="3" id="fanMessage"></textarea>
+        <div class="text-center">
+          <button class="btn btn-warning" id="postMessageBtn">Post Message</button>
+        </div>
+      </div>
+      
+      <div class="fan-messages" id="fanMessages">
+        <div class="fan-message">
+          <div class="fan-message-header">
+            <span>Rahim Khan</span>
+            <span>2 hours ago</span>
+          </div>
+          <p>Great performance in the last match! Keep up the good work!</p>
+        </div>
+        <div class="fan-message">
+          <div class="fan-message-header">
+            <span>Fatima Ahmed</span>
+            <span>5 hours ago</span>
+          </div>
+          <p>Can't wait for the next match! Go FCF!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Quiz -->
+  <section class="container">
+    <div class="quiz-container">
+      <h2 class="text-center mb-4">Cricket Quiz</h2>
+      <div class="quiz-question" id="quizQuestion">What is the highest individual score by an FCF player in a T20 match?</div>
+      <div class="quiz-options" id="quizOptions">
+        <div class="quiz-option" data-correct="false">85 runs</div>
+        <div class="quiz-option" data-correct="true">112 runs</div>
+        <div class="quiz-option" data-correct="false">96 runs</div>
+        <div class="quiz-option" data-correct="false">78 runs</div>
+      </div>
+      <div class="quiz-result" id="quizResult">
+        <h3 id="quizResultText"></h3>
+        <button class="btn btn-warning" id="nextQuestionBtn">Next Question</button>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-warning" id="submitQuizBtn">Submit Answer</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fan Leaderboard -->
+  <section class="container">
+    <div class="leaderboard-container">
+      <h2 class="text-center mb-4">Fan Leaderboard</h2>
+      <p class="text-center">Top fans based on engagement and predictions</p>
+      
+      <ul class="leaderboard-list">
+        <li class="leaderboard-item">
+          <span><span class="leaderboard-rank">1.</span> Rahim Khan</span>
+          <span>850 points</span>
+        </li>
+        <li class="leaderboard-item">
+          <span><span class="leaderboard-rank">2.</span> Fatima Ahmed</span>
+          <span>720 points</span>
+        </li>
+        <li class="leaderboard-item">
+          <span><span class="leaderboard-rank">3.</span> Karim Uddin</span>
+          <span>680 points</span>
+        </li>
+        <li class="leaderboard-item">
+          <span><span class="leaderboard-rank">4.</span> Sabina Khatun</span>
+          <span>550 points</span>
+        </li>
+        <li class="leaderboard-item">
+          <span><span class="leaderboard-rank">5.</span> Anisur Rahman</span>
+          <span>510 points</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner d-flex justify-content-between flex-wrap">
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📍 Mirpara, Natore (Old Boys School)</p>
+        <p>📞 +880 123 456 789</p>
+        <p>✉️ contact@fcfclub.com</p>
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="list-unstyled">
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="membership.html">Membership</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Follow Us</h3>
+        <p>
+          <a href="#"><i class="fab fa-facebook fa-lg me-3"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-lg me-3"></i></a>
+          <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center mt-3">
+      <p>&copy; 2025 FCF Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Testimonial Slider
+    const track = document.getElementById("sliderTrack");
+    const cards = document.querySelectorAll(".testimonial-card");
+    let index = 0;
+
+    function slide() {
+      index++;
+      if (index >= cards.length) index = 0;
+      track.style.transform = `translateX(-${index * 340}px)`;
+    }
+
+    setInterval(slide, 3000); // every 3s
+
+    // Interactive Poll
+    const voteBtn = document.getElementById('voteBtn');
+    const viewResultsBtn = document.getElementById('viewResultsBtn');
+    const pollOptions = document.querySelectorAll('.poll-option');
+    const pollResults = document.querySelector('.poll-results');
+    let selectedOption = null;
+
+    pollOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        pollOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        selectedOption = option.getAttribute('data-option');
+      });
+    });
+
+    voteBtn.addEventListener('click', () => {
+      if (selectedOption) {
+        alert('Thanks for your vote!');
+        // In a real app, you would send this to a server
+      } else {
+        alert('Please select an option first!');
+      }
+    });
+
+    viewResultsBtn.addEventListener('click', () => {
+      pollResults.style.display = 'block';
+      document.querySelectorAll('.poll-fill').forEach(fill => {
+        const percentage = fill.getAttribute('data-percentage');
+        fill.style.width = percentage + '%';
+      });
+    });
+
+    // Match Predictor
+    const predictBtn = document.getElementById('predictBtn');
+    const teamOptions = document.querySelectorAll('.team-option');
+    const predictionResult = document.getElementById('predictionResult');
+    const predictedTeam = document.getElementById('predictedTeam');
+    let selectedTeam = null;
+
+    teamOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        teamOptions.forEach(opt => opt.classList.remove('selected'));
+        option.classList.add('selected');
+        selectedTeam = option.getAttribute('data-team');
+      });
+    });
+
+    predictBtn.addEventListener('click', () => {
+      if (selectedTeam) {
+        let teamName = '';
+        if (selectedTeam === 'fcf') teamName = 'FCF Club';
+        else if (selectedTeam === 'royals') teamName = 'Rajshahi Royals';
+        else teamName = 'Draw/Tie';
+        
+        predictedTeam.textContent = teamName;
+        predictionResult.style.display = 'block';
+      } else {
+        alert('Please select a team first!');
+      }
+    });
+
+    // Fan Wall
+    const postMessageBtn = document.getElementById('postMessageBtn');
+    const fanNameInput = document.getElementById('fanName');
+    const fanMessageInput = document.getElementById('fanMessage');
+    const fanMessages = document.getElementById('fanMessages');
+
+    postMessageBtn.addEventListener('click', () => {
+      const name = fanNameInput.value.trim();
+      const message = fanMessageInput.value.trim();
+      
+      if (name && message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'fan-message';
+        
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        messageDiv.innerHTML = `
+          <div class="fan-message-header">
+            <span>${name}</span>
+            <span>Just now</span>
+          </div>
+          <p>${message}</p>
+        `;
+        
+        fanMessages.prepend(messageDiv);
+        fanNameInput.value = '';
+        fanMessageInput.value = '';
+      } else {
+        alert('Please enter both your name and a message!');
+      }
+    });
+
+    // Interactive Quiz
+    const submitQuizBtn = document.getElementById('submitQuizBtn');
+    const quizOptions = document.querySelectorAll('.quiz-option');
+    const quizResult = document.getElementById('quizResult');
+    const quizResultText = document.getElementById('quizResultText');
+    const nextQuestionBtn = document.getElementById('nextQuestionBtn');
+    let selectedQuizOption = null;
+
+    quizOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        quizOptions.forEach(opt => {
+          opt.classList.remove('selected');
+          opt.style.pointerEvents = 'none';
+        });
+        option.classList.add('selected');
+        selectedQuizOption = option;
+      });
+    });
+
+    submitQuizBtn.addEventListener('click', () => {
+      if (selectedQuizOption) {
+        const isCorrect = selectedQuizOption.getAttribute('data-correct') === 'true';
+        
+        if (isCorrect) {
+          selectedQuizOption.classList.add('correct');
+          quizResultText.textContent = 'Correct! Well done!';
+        } else {
+          selectedQuizOption.classList.add('incorrect');
+          // Highlight correct answer
+          quizOptions.forEach(opt => {
+            if (opt.getAttribute('data-correct') === 'true') {
+              opt.classList.add('correct');
+            }
+          });
+          quizResultText.textContent = 'Incorrect. Better luck next time!';
+        }
+        
+        quizResult.style.display = 'block';
+      } else {
+        alert('Please select an answer first!');
+      }
+    });
+
+    nextQuestionBtn.addEventListener('click', () => {
+      // In a real app, this would load the next question
+      alert('This would load the next question in a full implementation.');
+    });
+
+
+    // Mobile-specific improvements
+function initMobileFeatures() {
+  // Improve touch scrolling for testimonial slider
+  const sliderTrack = document.getElementById('sliderTrack');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  if (sliderTrack) {
+    sliderTrack.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - sliderTrack.offsetLeft;
+      scrollLeft = sliderTrack.scrollLeft;
+    });
+
+    sliderTrack.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+
+    sliderTrack.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    sliderTrack.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - sliderTrack.offsetLeft;
+      const walk = (x - startX) * 2;
+      sliderTrack.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch events for mobile
+    sliderTrack.addEventListener('touchstart', (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX - sliderTrack.offsetLeft;
+      scrollLeft = sliderTrack.scrollLeft;
+    });
+
+    sliderTrack.addEventListener('touchend', () => {
+      isDown = false;
+    });
+
+    sliderTrack.addEventListener('touchmove', (e) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX - sliderTrack.offsetLeft;
+      const walk = (x - startX) * 2;
+      sliderTrack.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  // Adjust testimonial slider for mobile
+  function adjustSliderForMobile() {
+    if (window.innerWidth <= 768) {
+      // For mobile, we might want different behavior
+      // This is a placeholder for mobile-specific slider adjustments
+    }
+  }
+
+  // Run on load and resize
+  window.addEventListener('load', adjustSliderForMobile);
+  window.addEventListener('resize', adjustSliderForMobile);
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', initMobileFeatures);
+  </script>
+</body>
+</html>

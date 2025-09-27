@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FCF Club — Achievements</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'custom-orange': '#e45705',
+            'custom-cyan': '#50fff6',
+            'custom-brown': '#a52a2a',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="flex items-center space-x-4">
+          <img src="assets/images/club_logo.jpg" alt="FCF Club logo" class="h-16 w-16 rounded-full object-cover">
+          <div>
+            <h1 class="text-2xl font-bold text-gray-900">FCF Club</h1>
+            <p class="text-sm text-gray-600">FCF Cricket Club</p>
+          </div>
+        </a>
+      </div>
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="text-gray-700 hover:text-custom-orange transition">Home</a>
+        <a href="about.html" class="text-gray-700 hover:text-custom-orange transition">About</a>
+        <a href="gallery.html" class="text-gray-700 hover:text-custom-orange transition">Gallery</a>
+        <a href="news.html" class="text-gray-700 hover:text-custom-orange transition">News</a>
+        <a href="fan-zone.html" class="text-gray-700 hover:text-custom-orange transition">Fan Zone</a>
+        <a href="players.html" class="text-gray-700 hover:text-custom-orange transition">Our Players</a>
+        <a href="achievements.html" class="text-custom-orange font-semibold">Achievement</a>
+        <a href="membership.html" class="bg-custom-orange text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">Membership</a>
+      </nav>
+      <button class="md:hidden text-gray-700">
+        <i class="fa fa-bars text-xl"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative bg-cover bg-center h-96" style="background-image: url('assets/images/achivement.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    <div class="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
+      <h2 class="text-5xl font-bold text-white mb-4">Our Achievements</h2>
+      <p class="text-xl text-custom-cyan">Celebrating our journey of success and glory</p>
+    </div>
+  </section>
+
+  <!-- Trophy Case -->
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-center mb-12 flex justify-center items-center">
+      <i class="fa-solid fa-trophy text-custom-orange text-5xl mr-4"></i> Trophy Cabinet
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Trophy Item 1 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/Tropy1.jpg" alt="Championship Trophy 2023" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-trophy text-custom-orange text-5xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Natore Govt Boys High School Trophy 2019</h3>
+          <p class="text-gray-600 mb-2">Championship Winner</p>
+          <span class="text-sm text-gray-500">Feb 15, 2019</span>
+        </div>
+      </div>
+      
+      <!-- Trophy Item 2 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/Tropy2.jpg" alt="League Trophy 2022" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-trophy text-custom-orange text-5xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">FCF Home League</h3>
+          <p class="text-gray-600 mb-2">Undefeated throughout the season</p>
+          <span class="text-sm text-gray-500">December 31, 2023</span>
+        </div>
+      </div>
+
+      <!-- Trophy Item 3 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/Tropy3.jpg" alt="League Trophy 2022" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-trophy text-custom-orange text-5xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">FCF Season 5</h3>
+          <p class="text-gray-600 mb-2">Championship Winner</p>
+          <span class="text-sm text-gray-500">January 15, 2025</span>
+        </div>
+      </div>
+
+      <!-- Trophy Item 4 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/Tropy4.jpg" alt="League Trophy 2022" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-trophy text-custom-orange text-5xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">FCF Premier League 2024</h3>
+          <p class="text-gray-600 mb-2">Undefeated throughout the season</p>
+          <span class="text-sm text-gray-500">November 8, 2024</span>
+        </div>
+      </div>
+
+      <!-- Trophy Item 5 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/Tropy5.jpg" alt="League Trophy 2022" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-trophy text-custom-orange text-5xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Old Boys School Premier League</h3>
+          <p class="text-gray-600 mb-2">Undefeated throughout the season</p>
+          <span class="text-sm text-gray-500">November 8, 2024</span>
+        </div>
+      </div>
+
+      <!-- Trophy Item 6 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/Tropy6.jpg" alt="Cup Trophy 2021" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-trophy text-custom-orange text-5xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Champions Cup 2021</h3>
+          <p class="text-gray-600 mb-2">Won by 5 wickets against Strikers</p>
+          <span class="text-sm text-gray-500">July 22, 2023</span>
+        </div>
+      </div>
+
+      <!-- Trophy Item 7 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/Tropy7.jpg" alt="League Trophy 2022" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-trophy text-custom-orange text-5xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Old Boys School Premier League</h3>
+          <p class="text-gray-600 mb-2">Undefeated throughout the season</p>
+          <span class="text-sm text-gray-500">November 8, 2024</span>
+        </div>
+      </div>
+
+      <!-- Trophy Item 8 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/Tropy8.jpg" alt="League Trophy 2022" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-trophy text-custom-orange text-5xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">New Boys School League</h3>
+          <p class="text-gray-600 mb-2">Undefeated throughout the season</p>
+          <span class="text-sm text-gray-500">June 8, 2024</span>
+        </div>
+      </div>
+
+      <!-- Trophy Item 9 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden">
+          <img src="assets/images/Tropy9.jpg" alt="League Trophy 2022" class="w-full h-64 object-cover">
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <i class="fas fa-trophy text-custom-orange text-5xl"></i>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Old Boys School Premier League</h3>
+          <p class="text-gray-600 mb-2">Undefeated throughout the season</p>
+          <span class="text-sm text-gray-500">August 8, 2017</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="border-2 border-black py-16">
+    <div class="container mx-auto px-4 shadow-lg">
+      <h2 class="text-4xl font-bold text-center mt-4 text-custom-brown">Our Journey</h2>
+      <div class="relative max-w-4xl mx-auto mt-12">
+        <!-- Timeline line -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300"></div>
+        
+        <!-- Timeline Item 1 -->
+        <div class="relative mb-12 flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 md:pr-8 mb-4 md:mb-0 md:text-right">
+            <div class="bg-cyan-100 p-6 rounded-lg shadow-md">
+              <h3 class="text-2xl font-bold mb-2 flex items-center gap-4">2025 <img class="w-24 h-16 rounded-lg" src="assets/club/club6.jpg" alt=""></h3>
+              <p>FCF Championship Winners</p>
+              <p>Best Performance Award</p>
+            </div>
+          </div>
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-custom-orange rounded-full border-4 border-white z-10"></div>
+          <div class="md:w-1/2"></div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="relative mb-12 flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2"></div>
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-custom-orange rounded-full border-4 border-white z-10"></div>
+          <div class="md:w-1/2 md:pl-8">
+            <div class="bg-rose-300 p-6 rounded-lg shadow-md">
+              <h3 class="text-2xl font-bold mb-2 flex items-center gap-4">2024 <img class="w-24 h-16 rounded-lg" src="assets/club/club5.jpg" alt=""></h3>
+              <p>Premier League Champions</p>
+              <p>Player of the Tournament Award</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="relative mb-12 flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 md:pr-8 mb-4 md:mb-0 md:text-right">
+            <div class="bg-gray-300 p-6 rounded-lg shadow-md">
+              <h3 class="text-2xl font-bold mb-2 flex items-center gap-4">2021 <img class="w-24 h-16 rounded-lg" src="assets/images/Tropy1.jpg" alt=""></h3>
+              <p>Champions Cup Winners</p>
+              <p>Fair Play Award</p>
+            </div>
+          </div>
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-custom-orange rounded-full border-4 border-white z-10"></div>
+          <div class="md:w-1/2"></div>
+        </div>
+
+        <!-- Timeline Item 4 -->
+        <div class="relative mb-12 flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2"></div>
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-custom-orange rounded-full border-4 border-white z-10"></div>
+          <div class="md:w-1/2 md:pl-8">
+            <div class="bg-green-200 p-6 rounded-lg shadow-md">
+              <h3 class="text-2xl font-bold mb-2 flex items-center gap-4">2018 <img class="w-24 h-16 rounded-lg" src="assets/club/club4.jpg" alt=""></h3>
+              <p>T20 Blast Runners-up</p>
+              <p>Emerging Player of the Year</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 5 -->
+        <div class="relative mb-12 flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 md:pr-8 mb-4 md:mb-0 md:text-right">
+            <div class="bg-amber-200 p-6 rounded-lg shadow-md">
+              <h3 class="text-2xl font-bold mb-2 flex items-center gap-4">2016 <img class="w-24 h-16 rounded-lg" src="assets/club/club3.jpg" alt=""></h3>
+              <p>T20 Blast Runners-up</p>
+              <p>Emerging Player of the Year</p>
+            </div>
+          </div>
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-custom-orange rounded-full border-4 border-white z-10"></div>
+          <div class="md:w-1/2"></div>
+        </div>
+
+        <!-- Timeline Item 6 -->
+        <div class="relative mb-12 flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2"></div>
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-custom-orange rounded-full border-4 border-white z-10"></div>
+          <div class="md:w-1/2 md:pl-8">
+            <div class="bg-amber-50 p-6 rounded-lg shadow-md">
+              <h3 class="text-2xl font-bold mb-2 flex items-center gap-4">2014 <img class="w-24 h-16 rounded-lg" src="assets/club/club2.jpg" alt=""></h3>
+              <p>T20 Blast Runners-up</p>
+              <p>Emerging Player of the Year</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 7 -->
+        <div class="relative mb-12 flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 md:pr-8 mb-4 md:mb-0 md:text-right">
+            <div class="bg-green-300 p-6 rounded-lg shadow-md">
+              <h3 class="text-2xl font-bold mb-2 flex items-center gap-4">2012 <img class="w-24 h-16 rounded-lg" src="assets/club/club1.jpg" alt=""></h3>
+              <p>Club Established</p>
+              <p>First Tournament Participation</p>
+            </div>
+          </div>
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-custom-orange rounded-full border-4 border-white z-10"></div>
+          <div class="md:w-1/2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Championship Wins -->
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-center mb-12">Championship Victories</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-cyan-50 p-6 rounded-lg shadow-md">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold">FCF Season 5 Championship 2024</h3>
+          <span class="bg-custom-orange text-white px-3 py-1 rounded-full">2024</span>
+        </div>
+        <div class="space-y-2">
+          <p><strong>Final:</strong> FCF Club vs Team 71</p>
+          <p><strong>Result:</strong> Won by 12 runs</p>
+          <p><strong>Team Performance</strong></p>
+        </div>
+      </div>
+      
+      <div class="bg-green-50 p-6 rounded-lg shadow-md">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold">Boys School Premier League 2022</h3>
+          <span class="bg-custom-orange text-white px-3 py-1 rounded-full">2022</span>
+        </div>
+        <div class="space-y-2">
+          <p><strong>Season:</strong> 12 wins, 0 losses</p>
+          <p><strong>Top Performer of The Season</strong></p>
+          <p><strong>Award:</strong> Best Team Performance</p>
+        </div>
+      </div>
+      
+      <div class="bg-orange-50 p-6 rounded-lg shadow-md">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-bold">NS College Champions Cup 2021</h3>
+          <span class="bg-custom-orange text-white px-3 py-1 rounded-full">2021</span>
+        </div>
+        <div class="space-y-2">
+          <p><strong>Final:</strong> FCF Club vs Strikers</p>
+          <p><strong>Result:</strong> Won by 5 wickets</p>
+          <p><strong>Team Performance</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Individual Awards -->
+  <section class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12">Individual Awards</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-gray-200 p-6 rounded-lg shadow-md text-center">
+          <div class="text-4xl text-custom-orange mb-4">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Player of the Year</h3>
+          <p class="text-gray-700 mb-2">Alif (2023)</p>
+          <p class="text-gray-700">Shakkor (2022)</p>
+        </div>
+        
+        <div class="bg-gray-200 p-6 rounded-lg shadow-md text-center">
+          <div class="text-4xl text-custom-orange mb-4">
+            <i class="fas fa-baseball-ball"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Best Batsman</h3>
+          <p class="text-gray-700 mb-2">Toukir (2023, 2022)</p>
+          <p class="text-gray-700">Uthso (2021)</p>
+        </div>
+        
+        <div class="bg-orange-100 p-6 rounded-lg shadow-md text-center">
+          <div class="text-4xl text-custom-orange mb-4">
+            <i class="fas fa-baseball-ball"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Best Bowler</h3>
+          <p class="text-gray-700 mb-2">Rezve (2023, 2022)</p>
+          <p class="text-gray-700">Arik (2021)</p>
+        </div>
+        
+        <div class="bg-purple-100 p-6 rounded-lg shadow-md text-center">
+          <div class="text-4xl text-custom-orange mb-4">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Emerging Player</h3>
+          <p class="text-gray-700 mb-2">Alamin (2018)</p>
+          <p class="text-gray-700">Shepon (2017)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Records -->
+  <section class="container mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-center mb-12 text-custom-brown">Record Breaking Performances</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <h3 class="text-xl font-bold mb-4">Highest Team Score</h3>
+        <p class="text-3xl font-bold text-custom-orange mb-2">325/4</p>
+        <p class="text-gray-600">vs XXXX CC (2023)</p>
+      </div>
+      
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <h3 class="text-xl font-bold mb-4">Best Bowling Figures</h3>
+        <p class="text-3xl font-bold text-custom-orange mb-2">7/22</p>
+        <p class="text-gray-600">XXXXX (2022)</p>
+      </div>
+      
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <h3 class="text-xl font-bold mb-4">Fastest Century</h3>
+        <p class="text-3xl font-bold text-custom-orange mb-2">48 balls</p>
+        <p class="text-gray-600">XXXXX (2023)</p>
+      </div>
+      
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <h3 class="text-xl font-bold mb-4">Most Wickets in Season</h3>
+        <p class="text-3xl font-bold text-custom-orange mb-2">45 wickets</p>
+        <p class="text-gray-600">XXXXX (2022 season)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+          <p class="mb-2">📍 Mirpara, Natore (Old Boys School)</p>
+          <p class="mb-2">📞 +880 123 456 789</p>
+          <p>✉️ contact@fcfclub.com</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="about.html" class="hover:text-custom-orange transition">About</a></li>
+            <li><a href="gallery.html" class="hover:text-custom-orange transition">Gallery</a></li>
+            <li><a href="news.html" class="hover:text-custom-orange transition">News</a></li>
+            <li><a href="membership.html" class="hover:text-custom-orange transition">Membership</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-2xl hover:text-custom-orange transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-2xl hover:text-custom-orange transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-2xl hover:text-custom-orange transition"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p>&copy; 2025 FCF Club. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle functionality
+    document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+      const nav = document.querySelector('nav.hidden');
+      nav.classList.toggle('hidden');
+      nav.classList.toggle('flex');
+      nav.classList.toggle('flex-col');
+      nav.classList.toggle('absolute');
+      nav.classList.toggle('top-16');
+      nav.classList.toggle('left-0');
+      nav.classList.toggle('w-full');
+      nav.classList.toggle('bg-white');
+      nav.classList.toggle('p-4');
+      nav.classList.toggle('shadow-lg');
+    });
+  </script>
+</body>
+</html>
