@@ -120,7 +120,7 @@
         </a>
         <div class="text-left">
           <h1 class="text-lg sm:text-2xl lg:text-3xl font-bold text-club-green">FCF Club</h1>
-          <p class="text-xs sm:text-sm lg:text-base text-gray-600">FCF Cricket Club</p>
+          <p class="text-xs sm:text-sm lg:text-base text-gray-600">Fire Cricket Fighters</p>
         </div>
       </div>
 
@@ -205,25 +205,25 @@
       else closeMenu();
     });
 
-    // Close when clicking outside header/menu
+
     document.addEventListener('click', function (e) {
       if (menu.classList.contains('hidden')) return;
       const headerEl = menu.closest('header') || document.querySelector('header');
       if (headerEl && !headerEl.contains(e.target)) closeMenu();
     });
 
-    // Close on Escape
+  
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !menu.classList.contains('hidden')) closeMenu();
     });
 
-    // Close when resizing to desktop (Tailwind lg breakpoint: 1024px)
+   
     const mq = window.matchMedia('(min-width: 1024px)');
     const mqHandler = (e) => { if (e.matches) closeMenu(); };
     if (mq.addEventListener) mq.addEventListener('change', mqHandler);
     else mq.addListener(mqHandler);
 
-    // Close when a mobile link is clicked (nice UX)
+  
     menu.addEventListener('click', function (e) {
       const target = e.target.closest('a');
       if (target) closeMenu();
@@ -319,13 +319,13 @@
           </div>
           <div class="p-4 md:p-6">
             <h3 class="text-xl font-bold text-club-green mb-2">Alif</h3>
-            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <p class="text-gray-600 mb-4 font-medium">All-rounder</p>
             <ul class="space-y-2 text-sm">
               <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>70</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>24</span></li>
               <li class="flex justify-between"><strong>Wickets:</strong> <span>33</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>92</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>150.0</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>120.0</span></li>
             </ul>
           </div>
         </div>
@@ -337,13 +337,13 @@
           </div>
           <div class="p-4 md:p-6">
             <h3 class="text-xl font-bold text-club-green mb-2">Shakkor</h3>
-            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <p class="text-gray-600 mb-4 font-medium">All-rounder</p>
             <ul class="space-y-2 text-sm">
               <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>23</span></li>
               <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>125.0</span></li>
             </ul>
           </div>
         </div>
@@ -355,11 +355,11 @@
           </div>
           <div class="p-4 md:p-6">
             <h3 class="text-xl font-bold text-club-green mb-2">Toukir</h3>
-            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
+            <p class="text-gray-600 mb-4 font-medium">All-rounder</p>
             <ul class="space-y-2 text-sm">
               <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>70</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>33</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>28</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>43</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>92</span></li>
               <li class="flex justify-between"><strong>Strike Rate:</strong> <span>150.0</span></li>
             </ul>
@@ -373,13 +373,13 @@
           </div>
           <div class="p-4 md:p-6">
             <h3 class="text-xl font-bold text-club-green mb-2">Utsho</h3>
-            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
               <li class="flex justify-between"><strong>Matches:</strong> <span>400</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>18</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>25</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>110.0</span></li>
             </ul>
           </div>
         </div>
@@ -393,11 +393,11 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Alamin</h3>
             <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>70</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>33</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>13</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>16</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>92</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>150.0</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>100.0</span></li>
             </ul>
           </div>
         </div>
@@ -409,11 +409,11 @@
           </div>
           <div class="p-4 md:p-6">
             <h3 class="text-xl font-bold text-club-green mb-2">Arik</h3>
-            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <p class="text-gray-600 mb-4 font-medium">All-rounder</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>470</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>20</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>31</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
               <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
             </ul>
@@ -429,11 +429,11 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Rezve</h3>
             <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>550</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>70</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>33</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>410</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>10</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>08</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>92</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>150.0</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>119.0</span></li>
             </ul>
           </div>
         </div>
@@ -447,15 +447,16 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Tanzim</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>230</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>05</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>80</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>110.0</span></li>
             </ul>
           </div>
         </div>
 
+        <!-- Player Card 9 - Zihad -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player9.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -464,14 +465,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Zihad</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>120</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>01</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>68</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>72.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 10 - Akash -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player10.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -480,14 +484,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Akash</h3>
             <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>320</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>03</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>06</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>89</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>135.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 11 - Shepon -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player12.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -496,14 +503,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Shepon</h3>
             <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>232</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>04</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>05</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
               <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 12 - Alamin -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player13.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -512,14 +522,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Alamin</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>370</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>03</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>42</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>78</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>120.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 13 - Abid -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player15.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -528,14 +541,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Abid</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>120</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>08</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>80</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>112.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 14 - Alvi -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player16.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -544,30 +560,36 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Alvi</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>310</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>26</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>128.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 15 - Sinha -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player17.jpg" alt="Tanzim" class="w-full h-full object-cover">
           </div>
           <div class="p-4 md:p-6">
             <h3 class="text-xl font-bold text-club-green mb-2">Sinha</h3>
-            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <p class="text-gray-600 mb-4 font-medium">Fielder</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>40</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>01</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>58</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>72.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 16 - Rafi -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player18.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -576,14 +598,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Rafi</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>180</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>10</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>78</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>110.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 17 - Nakib -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player19.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -592,30 +617,36 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Nakib</h3>
             <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>210</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>81</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>112.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 18 - Sunny -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player21.jpg" alt="Tanzim" class="w-full h-full object-cover">
           </div>
           <div class="p-4 md:p-6">
             <h3 class="text-xl font-bold text-club-green mb-2">Sunny</h3>
-            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>52</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>68</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>89.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 19 - Nadim -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player22.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -624,14 +655,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Nadim</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>180</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>01</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>16</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>82</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>120.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 20 - Safin -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player23.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -640,14 +674,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Safin</h3>
             <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>160</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>08</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>123.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 21 - Siam -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player24.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -656,14 +693,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Siam</h3>
             <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>80</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>02</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>02</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>150.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 22 - Lemon -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player25.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -672,14 +712,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Lemon</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>120</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>09</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>81</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>123.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 23 - Shimul -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player26.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -688,14 +731,17 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Shimul</h3>
             <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>20</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>65</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>89.0</span></li>
             </ul>
           </div>
         </div>
+
+
+        <!-- Player Card 24 - Mahin -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player27.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -704,30 +750,34 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Mahin</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>65</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>76.0</span></li>
             </ul>
           </div>
         </div>
+
+        <!-- Player Card 25 - Ohi -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player28.jpg" alt="Tanzim" class="w-full h-full object-cover">
           </div>
           <div class="p-4 md:p-6">
             <h3 class="text-xl font-bold text-club-green mb-2">Ohi</h3>
-            <p class="text-gray-600 mb-4 font-medium">Bowler</p>
+            <p class="text-gray-600 mb-4 font-medium">Batsman</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>20</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>80.0</span></li>
             </ul>
           </div>
         </div>
+
+        <!-- Player Card 26 - Meahdi -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player29.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -736,14 +786,16 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Meahdi</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>10</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>60</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>70.0</span></li>
             </ul>
           </div>
         </div>
+
+        <!-- Player Card 27 - Sopno -->
          <div class="player-card bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden">
           <div class="aspect-square overflow-hidden">
             <img src="assets/Player/player30.jpg" alt="Tanzim" class="w-full h-full object-cover">
@@ -752,11 +804,11 @@
             <h3 class="text-xl font-bold text-club-green mb-2">Sopno</h3>
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
-              <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
-              <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
-              <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
-              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
+              <li class="flex justify-between"><strong>Matches:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Wickets:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Strength:</strong> <span>00</span></li>
+              <li class="flex justify-between"><strong>Strike Rate:</strong> <span>000.0</span></li>
             </ul>
           </div>
         </div>
@@ -770,7 +822,7 @@
             <p class="text-gray-600 mb-4 font-medium">Bowler</p>
             <ul class="space-y-2 text-sm">
               <li class="flex justify-between"><strong>Matches:</strong> <span>450</span></li>
-              <li class="flex justify-between"><strong>Centuries:</strong> <span>50</span></li>
+              <li class="flex justify-between"><strong>Half-Centuries:</strong> <span>50</span></li>
               <li class="flex justify-between"><strong>Wickets:</strong> <span>60</span></li>
               <li class="flex justify-between"><strong>Strength:</strong> <span>88</span></li>
               <li class="flex justify-between"><strong>Strike Rate:</strong> <span>140.0</span></li>
@@ -840,7 +892,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <h3 class="text-xl font-bold mb-4">FCF Club</h3>
-          <p class="text-gray-300">FCF Cricket Club is dedicated to promoting cricket excellence and sportsmanship in our community.</p>
+          <p class="text-gray-300">Fire Cricket Fighters is dedicated to promoting cricket excellence and sportsmanship in our community.</p>
         </div>
         <div>
           <h3 class="text-xl font-bold mb-4">Quick Links</h3>
